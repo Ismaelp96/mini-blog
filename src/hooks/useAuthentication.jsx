@@ -1,10 +1,8 @@
-import { db } from '../firebase/firebaseConfig.js';
+import '../firebase/firebaseConfig.js';
 import {
 	getAuth,
 	createUserWithEmailAndPassword,
-	signInWithEmailAndPassword,
 	updateProfile,
-	signOut,
 } from 'firebase/auth';
 
 import { useEffect, useState } from 'react';
