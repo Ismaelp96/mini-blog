@@ -53,10 +53,14 @@ nav button {
 
 .container .error {
 	background-color: var(--light-red);
-	color: var(--red);
+
 	border: 1px solid var(--light-red);
 	padding: 0.8rem;
 	border-radius: 0.6rem;
+}
+
+.container .error p {
+	color: var(--red);
 	font-size: 1.6rem;
 }
 
