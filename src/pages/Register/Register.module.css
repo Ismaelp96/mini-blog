@@ -38,10 +38,12 @@
 .register form label input {
 	height: 4rem;
 	width: 100%;
-	border-color: transparent;
+	border: 1px solid rgba(204, 204, 204, 0.6);
+
 	border-radius: 0.6rem;
 	padding: 0 1rem;
 	font-size: 1.4rem;
+
 	&::placeholder {
 		font-size: 1.4rem;
 		text-align: center;
@@ -55,9 +57,16 @@
 	height: 4rem;
 	border: none;
 	border-radius: 0.6rem;
+	background-color: #0f730c;
+	color: #fff;
 	cursor: pointer;
 	transition: filter 0.2s ease-in-out;
+
 	&:hover {
 		filter: brightness(0.8);
 	}
+}
+
+.register form .btn[disabled] {
+	background-color: #aaa;
 }
