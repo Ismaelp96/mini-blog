@@ -1,0 +1,17 @@
+.footer {
+	height: 9.6rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	background-color: #edf3f6;
+}
+
+.titl_footer {
+	font-size: 1.6rem;
+}
+
+.p_footer {
+	font-size: 1.4rem;
+}
