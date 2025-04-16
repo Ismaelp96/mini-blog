@@ -1,0 +1,63 @@
+.register {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 2rem;
+	text-align: center;
+}
+
+.register h1 {
+	font-size: 2rem;
+}
+
+.register p {
+	color: #aaa;
+	font-size: 1.6rem;
+}
+
+.register form {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 100%;
+	max-width: 28%;
+}
+
+.register form label {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.register form label span {
+	font-size: 1.4rem;
+}
+
+.register form label input {
+	height: 4rem;
+	width: 100%;
+	border-color: transparent;
+	border-radius: 0.6rem;
+	padding: 0 1rem;
+	font-size: 1.4rem;
+	&::placeholder {
+		font-size: 1.4rem;
+		text-align: center;
+	}
+}
+
+.register form .btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	height: 4rem;
+	border: none;
+	border-radius: 0.6rem;
+	cursor: pointer;
+	transition: filter 0.2s ease-in-out;
+	&:hover {
+		filter: brightness(0.8);
+	}
+}
