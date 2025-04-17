@@ -84,3 +84,15 @@ nav button {
 .btn[disabled] {
 	background-color: var(--gray);
 }
+
+.btn-outline {
+	background-color: var(--bg-light);
+	font-size: 1.4rem;
+	border-radius: 0.6rem;
+	padding: 1rem;
+	border: 1px solid transparent;
+	transition: border-color 0.2s ease-in-out;
+	&:hover {
+		border-color: var(--black);
+	}
+}
