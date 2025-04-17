@@ -1,4 +1,4 @@
-import { db } from '../firebase/firebaseConfig';
+import { db } from '../firebase/firebaseConfig.js';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { useState, useEffect, useReducer } from 'react';
 
@@ -22,7 +22,6 @@ const insertReducer = (state, action) => {
 
 export const UserInsertDocument = (docCollection) => {
 	const [response, dispatch] = useReducer(insertReducer, initialState);
-
 	const [cancelled, setCancelled] = useState(false);
 
 	const checkCancelBeforeDIspatch = (action) => {

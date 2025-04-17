@@ -2,8 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './CreatePost.module.css';
+import { UserInsertDocument } from '../../hooks/useInsertDocument';
+import { useAuthValue } from '../../context/AuthContext';
 
 const CreatePost = () => {
+	const { insertDocument, response } = UserInsertDocument('posts');
+	const { user } = useAuthValue();
 	const [post, setPost] = useState({
 		title: '',
 		img: '',
@@ -14,6 +18,26 @@ const CreatePost = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		setPost({ ...post, error: '' });
+		// if (!post.img.match(/^https?:\/\/.+\.(jpg|jpeg|png|gif)$/i)) {
+		// 	setPost({
+		// 		...post,
+		// 		error: 'A URL da imagem deve ser válida (jpg, png, gif).',
+		// 	});
+		// 	return;
+		// }
+		const tagsArray = post.tags
+			.split(',')
+			.map((tag) => tag.trim().toLowerCase());
+		setPost({ ...post, error: '' });
+		insertDocument({
+			title: post.title,
+			img: post.img,
+			body: post.body,
+			tags: tagsArray,
+			uid: user.uid,
+			createdBy: user.displayName,
+		});
 	};
 
 	return (
@@ -65,10 +89,15 @@ const CreatePost = () => {
 						onChange={(e) => setPost({ ...post, body: e.target.value })}
 					/>
 				</label>
-				<button className='btn'>Postar</button>
-				{post.error && (
+				{!response.loading && <button className='btn'>Postar</button>}
+				{response.loading && (
+					<button className='btn' disabled>
+						Aguarde...
+					</button>
+				)}
+				{response.error && (
 					<div className='error'>
-						<p>{post.error}</p>
+						<p>{response.error}</p>
 					</div>
 				)}
 			</form>
