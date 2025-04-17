@@ -13,23 +13,32 @@ const CreatePost = () => {
 		img: '',
 		body: '',
 		error: '',
-		tags: [],
+		tags: '',
 	});
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		setPost({ ...post, error: '' });
-		// if (!post.img.match(/^https?:\/\/.+\.(jpg|jpeg|png|gif)$/i)) {
-		// 	setPost({
-		// 		...post,
-		// 		error: 'A URL da imagem deve ser válida (jpg, png, gif).',
-		// 	});
-		// 	return;
-		// }
+		let formError = '';
+		try {
+			new URL(post.img);
+		} catch (error) {
+			formError = 'Imagem precisa ser uma URL.';
+		}
+
 		const tagsArray = post.tags
 			.split(',')
 			.map((tag) => tag.trim().toLowerCase());
+
+		if (!post.title || !post.img || !post.body || !post.tags) {
+			formError = 'Todos os campos devem ser preenchidos.';
+		}
+		if (formError) {
+			setPost({ ...post, error: formError });
+			return;
+		}
+
 		setPost({ ...post, error: '' });
+
 		insertDocument({
 			title: post.title,
 			img: post.img,
@@ -98,6 +107,11 @@ const CreatePost = () => {
 				{response.error && (
 					<div className='error'>
 						<p>{response.error}</p>
+					</div>
+				)}
+				{post.error && (
+					<div className='error'>
+						<p>{post.error}</p>
 					</div>
 				)}
 			</form>

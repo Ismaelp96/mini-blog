@@ -1,7 +1,7 @@
 .create_post {
 	width: 100%;
 	display: flex;
-
+	align-items: center;
 	flex-direction: column;
 	gap: 2rem;
 }
@@ -20,6 +20,7 @@
 	flex-direction: column;
 	gap: 2rem;
 	width: 100%;
+	max-width: 50%;
 }
 .create_post form label span {
 	font-size: 1.6rem;

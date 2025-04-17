@@ -63,6 +63,7 @@ nav button {
 .container .error p {
 	color: var(--red);
 	font-size: 1.6rem;
+	text-align: center;
 }
 
 button {
