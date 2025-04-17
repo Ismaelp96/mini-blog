@@ -1,0 +1,19 @@
+.about {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	height: 60vh;
+}
+
+.about p {
+	color: #aaa;
+	margin-bottom: 2rem;
+	font-size: 1.6rem;
+}
+
+.about a {
+	margin-top: 1.5rem;
+	padding: 0 1.5rem;
+}

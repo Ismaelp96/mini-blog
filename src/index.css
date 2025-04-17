@@ -75,7 +75,7 @@ nav button {
 	color: var(--bg-light);
 	cursor: pointer;
 	transition: filter 0.2s ease-in-out;
-
+	font-size: 1.6rem;
 	&:hover {
 		filter: brightness(0.8);
 	}
