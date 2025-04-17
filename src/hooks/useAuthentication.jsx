@@ -4,6 +4,7 @@ import {
 	createUserWithEmailAndPassword,
 	updateProfile,
 	signOut,
+	signInWithEmailAndPassword,
 } from 'firebase/auth';
 
 import { useEffect, useState } from 'react';
@@ -54,6 +55,35 @@ export const useAuthentication = () => {
 		}
 	};
 
+	const loginUser = async (data) => {
+		checkIfIsCancelled();
+		setAuthentication({ loading: true, error: null });
+		try {
+			const user = await signInWithEmailAndPassword(
+				auth,
+				data.email,
+				data.password,
+			);
+			setAuthentication({ loading: false, error: null });
+			return user;
+		} catch (error) {
+			const invalidCredential = error.message.includes(
+				'auth/invalid-credential',
+			);
+			let customError;
+			if (invalidCredential) {
+				customError = 'Email ou senha está incorreto.';
+			} else {
+				customError =
+					'Ocorreu um erro ao fazer login. Tente novamente mais tarde!';
+			}
+
+			console.error('Erro ao fazer login:', error);
+			setAuthentication({ error: customError, loading: false });
+			return null;
+		}
+	};
+
 	const logout = () => {
 		checkIfIsCancelled();
 		signOut(auth);
@@ -68,6 +98,7 @@ export const useAuthentication = () => {
 		createUser,
 		error: authentication.error,
 		loading: authentication.loading,
+		loginUser,
 		logout,
 	};
 };
