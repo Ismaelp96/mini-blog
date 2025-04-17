@@ -1,0 +1,49 @@
+.create_post {
+	width: 100%;
+	display: flex;
+
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.create_post h1 {
+	font-size: 2.6rem;
+}
+
+.create_post p {
+	color: var(--gray);
+	font-size: 1.6rem;
+}
+
+.create_post form {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	width: 100%;
+}
+.create_post form label span {
+	font-size: 1.6rem;
+}
+
+.create_post form .grid_inputs {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.create_post form label textarea {
+	height: 14rem;
+	border-radius: 0.6rem;
+	resize: none;
+	font-size: 1.6rem;
+	padding: 1rem;
+	&::placeholder {
+		font-size: 1.6rem;
+	}
+}
+
+.create_post form button {
+	width: 100%;
+	max-width: 20%;
+	align-self: end;
+}
