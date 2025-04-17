@@ -88,7 +88,7 @@ const Register = () => {
 						type='password'
 						name='confirmPassword'
 						required
-						placeholder='Confirme sua senha novamente'
+						placeholder='Confirme sua senha'
 						autoComplete='new-password'
 						value={register.confirmPassword}
 						onChange={(e) =>

@@ -1,0 +1,57 @@
+.login {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+
+	width: 100%;
+}
+
+.login p {
+	font-size: 1.8rem;
+}
+
+.login p span {
+	color: var(--green);
+	font-weight: 600;
+}
+
+.login form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+	gap: 2rem;
+}
+
+.login form label {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+	width: 100%;
+	max-width: 20%;
+}
+
+.login form label span {
+	font-size: 1.6rem;
+}
+
+.login form label input {
+	height: 4rem;
+	width: 100%;
+	border: 1px solid var(--gray);
+	border-radius: 0.6rem;
+	padding: 0 1rem;
+	font-size: 1.6rem;
+
+	&::placeholder {
+		font-size: 1.6rem;
+	}
+}
+
+.login form button {
+	width: 100%;
+	max-width: 20%;
+}

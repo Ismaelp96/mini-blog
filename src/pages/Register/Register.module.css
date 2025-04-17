@@ -22,28 +22,9 @@
 	flex-direction: column;
 	gap: 2rem;
 	width: 100%;
-	max-width: 28%;
-}
-
-.register form label {
-	display: flex;
-	flex-direction: column;
-	gap: 0.6rem;
+	max-width: 20%;
 }
 
 .register form label span {
-	font-size: 1.4rem;
-}
-
-.register form label input {
-	height: 4rem;
-	width: 100%;
-	border: 1px solid var(--gray);
-	border-radius: 0.6rem;
-	padding: 0 1rem;
 	font-size: 1.6rem;
-
-	&::placeholder {
-		font-size: 1.6rem;
-	}
 }

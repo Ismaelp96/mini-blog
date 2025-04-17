@@ -49,6 +49,7 @@ nav button {
 	max-width: 133rem;
 	padding: 2rem 1.5rem;
 	margin: 0 auto;
+	height: 60vh;
 }
 
 .container .error {
@@ -62,6 +63,10 @@ nav button {
 .container .error p {
 	color: var(--red);
 	font-size: 1.6rem;
+}
+
+button {
+	cursor: pointer;
 }
 
 .btn {
@@ -94,5 +99,24 @@ nav button {
 	transition: border-color 0.2s ease-in-out;
 	&:hover {
 		border-color: var(--black);
+	}
+}
+
+label {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+input {
+	height: 4rem;
+	width: 100%;
+	border: 1px solid var(--gray);
+	border-radius: 0.6rem;
+	padding: 0 1rem;
+	font-size: 1.6rem;
+
+	&::placeholder {
+		font-size: 1.6rem;
 	}
 }
