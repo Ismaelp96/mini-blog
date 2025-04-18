@@ -6,6 +6,7 @@ import { UserInsertDocument } from '../../hooks/useInsertDocument';
 import { useAuthValue } from '../../context/AuthContext';
 
 const CreatePost = () => {
+	const navigate = useNavigate();
 	const { insertDocument, response } = UserInsertDocument('posts');
 	const { user } = useAuthValue();
 	const [post, setPost] = useState({
@@ -47,6 +48,7 @@ const CreatePost = () => {
 			uid: user.uid,
 			createdBy: user.displayName,
 		});
+		navigate('/');
 	};
 
 	return (

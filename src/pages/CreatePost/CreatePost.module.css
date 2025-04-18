@@ -20,7 +20,7 @@
 	flex-direction: column;
 	gap: 2rem;
 	width: 100%;
-	max-width: 50%;
+	max-width: 65%;
 }
 .create_post form label span {
 	font-size: 1.6rem;
