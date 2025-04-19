@@ -24,14 +24,14 @@ export const UserInsertDocument = (docCollection) => {
 	const [response, dispatch] = useReducer(insertReducer, initialState);
 	const [cancelled, setCancelled] = useState(false);
 
-	const checkCancelBeforeDIspatch = (action) => {
+	const checkCancelBeforeDispatch = (action) => {
 		if (!cancelled) {
 			dispatch(action);
 		}
 	};
 
 	const insertDocument = async (document) => {
-		checkCancelBeforeDIspatch({
+		checkCancelBeforeDispatch({
 			type: 'LOADING',
 		});
 		try {
@@ -40,12 +40,12 @@ export const UserInsertDocument = (docCollection) => {
 				collection(db, docCollection),
 				newDocument,
 			);
-			checkCancelBeforeDIspatch({
+			checkCancelBeforeDispatch({
 				type: 'INSERTED_DOC',
 				payload: insertedDocument,
 			});
 		} catch (error) {
-			checkCancelBeforeDIspatch({
+			checkCancelBeforeDispatch({
 				type: 'ERROR',
 				payload: error.message,
 			});
