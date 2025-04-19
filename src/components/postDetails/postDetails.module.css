@@ -1,0 +1,33 @@
+.post {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 2rem;
+}
+.post img {
+	border-radius: 1rem;
+	width: 100%;
+	max-width: 50%;
+}
+
+.content_text {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	text-align: left;
+}
+
+.content_text .title {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.content_text .title p {
+	color: var(--gray);
+	font-size: 1.4rem;
+	font-weight: 500;
+}
