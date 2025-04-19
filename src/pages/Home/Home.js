@@ -2,11 +2,14 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
 
 import styles from './Home.module.css';
+import { useFetchDocuments } from '../../hooks/useFetchDocuments';
+import PostDetails from '../../components/postDetails/postDetails';
 const Home = () => {
 	const [homeState, setHomeState] = useState({
 		query: '',
-		posts: [],
 	});
+	const { documents: posts, loading, error } = useFetchDocuments('posts');
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
 	};
@@ -25,7 +28,9 @@ const Home = () => {
 				<button className='btn-outline'>Pesquisar</button>
 			</form>
 			<div className={styles.posts}>
-				<h2>Posts..</h2>
+				{loading && <p>Carregando...</p>}
+				{posts &&
+					posts.map((post) => <PostDetails key={post.id} post={post} />)}
 				{homeState.posts && homeState.posts.length === 0 && (
 					<div className={styles.no_posts}>
 						<p>Não foram encontrados posts.</p>
