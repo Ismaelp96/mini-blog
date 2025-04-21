@@ -1,4 +1,4 @@
-import styles from './postDetails.module.css';
+import styles from './PostDetails.module.css';
 
 import { Link } from 'react-router-dom';
 

@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import styles from './Home.module.css';
+
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import PostDetails from '../../components/postDetails/postDetails';
 const Home = () => {
@@ -46,7 +47,7 @@ const Home = () => {
 					posts.map((post) => <PostDetails key={post.id} post={post} />)}
 				{posts && posts.length === 0 && (
 					<div className={styles.no_posts}>
-						<p>Não foram encontrados posts.</p>
+						<p>Não foram encontrados posts.😥</p>
 						<Link to='/posts/create' className='btn btn-primary'>
 							Criar primeiro post
 						</Link>
