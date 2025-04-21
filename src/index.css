@@ -76,30 +76,40 @@ button {
 	height: 4rem;
 	border: none;
 	border-radius: 0.6rem;
-	background-color: var(--green);
-	color: var(--bg-light);
 	cursor: pointer;
-	transition: filter 0.2s ease-in-out;
 	font-size: 1.6rem;
 	padding: 0 1rem;
-	&:hover {
-		filter: brightness(0.8);
-	}
 }
 
 .btn[disabled] {
 	background-color: var(--gray);
 }
 
+.btn-primary {
+	background-color: var(--green);
+	color: var(--bg-light);
+	transition: filter 0.2s ease-in-out;
+	&:hover {
+		filter: brightness(0.8);
+	}
+}
+
 .btn-outline {
 	background-color: var(--bg-light);
-	font-size: 1.4rem;
-	border-radius: 0.6rem;
-	padding: 1rem;
 	border: 1px solid transparent;
 	transition: border-color 0.2s ease-in-out;
 	&:hover {
 		border-color: var(--black);
+	}
+}
+
+.btn-read {
+	background-color: var(--bg-light);
+	border: 1px solid var(--black);
+	transition: all 0.2s ease-in-out;
+	&:hover {
+		background-color: var(--black);
+		color: var(--bg-light);
 	}
 }
 

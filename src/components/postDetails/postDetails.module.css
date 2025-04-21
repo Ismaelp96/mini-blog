@@ -13,10 +13,11 @@
 
 .content_text {
 	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
 
+	gap: 2rem;
 	text-align: left;
 }
 
@@ -30,4 +31,28 @@
 	color: var(--gray);
 	font-size: 1.4rem;
 	font-weight: 500;
+}
+
+.content_text p {
+	font-size: 1.6rem;
+}
+
+.content_text .tags {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.content_text .tags li {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	background-color: var(--light-red);
+	padding: 1rem;
+	border-radius: 0.6rem;
+}
+
+.content_text a {
+	width: 100%;
+	max-width: 20%;
 }

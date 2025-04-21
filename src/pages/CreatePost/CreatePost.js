@@ -100,7 +100,9 @@ const CreatePost = () => {
 						onChange={(e) => setPost({ ...post, body: e.target.value })}
 					/>
 				</label>
-				{!response.loading && <button className='btn'>Postar</button>}
+				{!response.loading && (
+					<button className='btn btn-primary'>Postar</button>
+				)}
 				{response.loading && (
 					<button className='btn' disabled>
 						Aguarde...

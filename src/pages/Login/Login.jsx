@@ -60,8 +60,8 @@ const Login = () => {
 						onChange={(e) => setLogin({ ...login, password: e.target.value })}
 					/>
 				</label>
-				{!loading && <button className='btn'>Entrar</button>}
-				<button className='btn-outline'>Cadastrar</button>
+				{!loading && <button className='btn btn-primary'>Entrar</button>}
+				<button className='btn btn-outline'>Cadastrar</button>
 				{loading && (
 					<button className='btn' disabled>
 						Aguarde...

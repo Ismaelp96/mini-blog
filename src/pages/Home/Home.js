@@ -1,4 +1,4 @@
-import { useNavigate, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import styles from './Home.module.css';
@@ -9,13 +9,17 @@ const Home = () => {
 	const {
 		documents: posts,
 		loading,
-		error,
 		loadDocuments,
 		cancel,
 	} = useFetchDocuments('posts', query);
 
+	const navigate = useNavigate();
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		if (query) {
+			return navigate(`/search?q=${query}`);
+		}
 		loadDocuments();
 	};
 
@@ -23,7 +27,7 @@ const Home = () => {
 		loadDocuments();
 
 		return cancel;
-	}, []);
+	}, [cancel, loadDocuments]);
 	return (
 		<div className={styles.home}>
 			<h1>Veja os nossos posts mais recentes!</h1>
@@ -34,7 +38,7 @@ const Home = () => {
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 				/>
-				<button className='btn-outline'>Pesquisar</button>
+				<button className='btn btn-outline'>Pesquisar</button>
 			</form>
 			<div className={styles.posts}>
 				{loading && <p>Carregando...</p>}
@@ -43,7 +47,7 @@ const Home = () => {
 				{posts && posts.length === 0 && (
 					<div className={styles.no_posts}>
 						<p>Não foram encontrados posts.</p>
-						<Link to='/posts/create' className='btn'>
+						<Link to='/posts/create' className='btn btn-primary'>
 							Criar primeiro post
 						</Link>
 					</div>

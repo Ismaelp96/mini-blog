@@ -12,15 +12,17 @@ const PostDetails = ({ post }) => {
 					<p>Autor: {post.createdBy}</p>
 				</div>
 				<p>{post.body}</p>
-				<div className={styles.tags}>
+				<ul className={styles.tags}>
 					{post.tags.map((tag, i) => (
-						<div key={i}>
+						<li key={i}>
 							<span>#</span>
 							<p>{tag}</p>
-						</div>
+						</li>
 					))}
-				</div>
-				<Link to={`/post/${post.id}`}>Ler</Link>
+				</ul>
+				<Link to={`/post/${post.id}`} className='btn btn-read'>
+					Ler
+				</Link>
 			</div>
 		</div>
 	);

@@ -56,7 +56,7 @@ const Navbar = () => {
 					</li>
 					{user && (
 						<li>
-							<button onClick={logout} className='btn-outline'>
+							<button onClick={logout} className='btn btn-outline'>
 								Sair
 							</button>
 						</li>
