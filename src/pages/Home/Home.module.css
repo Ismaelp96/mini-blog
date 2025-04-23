@@ -20,26 +20,15 @@
 	max-width: 50%;
 }
 
-.home .posts {
+.posts {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
-}
-
-.home .posts h2 {
-	font-size: 1.8rem;
-}
-
-.home .no_posts {
-	text-align: center;
-	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
 	gap: 2rem;
 }
 
-.home .no_posts p {
-	font-size: 2rem;
+.posts h2 {
+	font-size: 1.8rem;
 }

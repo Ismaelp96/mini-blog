@@ -47,6 +47,12 @@ button {
 	border: none;
 }
 
+img {
+	display: block;
+	max-width: 100%;
+	height: 100%;
+}
+
 .container {
 	width: 100%;
 	max-width: 124.6rem;
@@ -142,4 +148,17 @@ input {
 	&::placeholder {
 		font-size: 1.6rem;
 	}
+}
+
+.no_posts {
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.no_posts p {
+	font-size: 2rem;
 }

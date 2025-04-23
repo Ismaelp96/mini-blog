@@ -5,6 +5,7 @@ import styles from './Dashboard.module.css';
 import { useAuthValue } from '../../context/AuthContext';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { useEffect } from 'react';
+import { tab } from '@testing-library/user-event/dist/tab';
 const Dashboard = () => {
 	const { user } = useAuthValue();
 	const uid = user.uid;
@@ -26,14 +27,14 @@ const Dashboard = () => {
 	};
 
 	return (
-		<div>
+		<div className={styles.dashboard}>
 			<h2>Dashboard</h2>
-			<p>Seja bem-vindo, {user.displayName}</p>
-			<p>Seu email: {user.email}</p>
-
-			<p>Gerencie os seus posts</p>
+			<div className={styles.user_info}>
+				<p>Seja bem-vindo, {user.displayName}</p>
+				<p>E-mail: {user.email}</p>
+			</div>
 			{posts && posts.length === 0 ? (
-				<div className={styles.nopost}>
+				<div className='no_posts'>
 					<p>Não foram encontrados posts...</p>
 					<Link to='/posts/create' className='btn btn-primary'>
 						Criar post
@@ -41,15 +42,18 @@ const Dashboard = () => {
 				</div>
 			) : (
 				<>
-					<div>
-						<button>Título</button>
-						<button>Ações</button>
+					<div className={styles.table_container}>
+						<p>Gerencie os seus posts</p>
+						<div className={styles.table_header}>
+							<button>Título</button>
+							<button>Ações</button>
+						</div>
 					</div>
 					{posts &&
 						posts.map((post) => (
-							<div key={post.id}>
+							<div key={post.id} className={styles.table_row}>
 								<h3>{post.title}</h3>
-								<div>
+								<div className={styles.actions}>
 									<Link to={`/posts/${post.id}`} className='btn btn-outline'>
 										Ver
 									</Link>

@@ -12,17 +12,19 @@ const PostDetails = ({ post }) => {
 					<span>Autor: {post.createdBy}</span>
 				</div>
 				<p className={styles.body_post}>{post.body}</p>
-				<ul className={styles.tags}>
-					{post.tags.map((tag, i) => (
-						<li key={i}>
-							<span>#</span>
-							<p>{tag}</p>
-						</li>
-					))}
-				</ul>
-				<Link to={`/posts/${post.id}`} className='btn btn-read'>
-					Ler
-				</Link>
+				<div className={styles.bottom_post}>
+					<ul className={styles.tags}>
+						{post.tags.map((tag, i) => (
+							<li key={i}>
+								<span>#</span>
+								<p>{tag}</p>
+							</li>
+						))}
+					</ul>
+					<Link to={`/posts/${post.id}`} className='btn btn-read'>
+						Ler
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

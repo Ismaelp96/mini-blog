@@ -21,19 +21,23 @@ const Post = () => {
 		<>
 			{loading && <p>Carregando Post...</p>}
 			{post && (
-				<div className={styles.post}>
-					<h1>{post.title}</h1>
-					<img src={post.img} alt={post.title} />
-					<p>{post.body}</p>
-					<h3>Este post trata sobre:</h3>
-					<ul className={styles.tags}>
-						{post.tags.map((tag, i) => (
-							<li key={i}>
-								<span>#</span>
-								<p>{tag}</p>
-							</li>
-						))}
-					</ul>
+				<div className={styles.post_container}>
+					<div className={styles.post_left}>
+						<h1>{post.title}</h1>
+						<img src={post.img} alt={post.title} />
+					</div>
+					<div className={styles.post_right}>
+						<p>{post.body}</p>
+						<h3>Este post trata sobre:</h3>
+						<ul className={styles.tags}>
+							{post.tags.map((tag, i) => (
+								<li key={i}>
+									<span>#</span>
+									<p>{tag}</p>
+								</li>
+							))}
+						</ul>
+					</div>
 				</div>
 			)}
 			{error && <p>Erro: {error}</p>}
