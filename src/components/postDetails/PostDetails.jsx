@@ -9,9 +9,9 @@ const PostDetails = ({ post }) => {
 			<div className={styles.content_text}>
 				<div className={styles.title}>
 					<h2>{post.title}</h2>
-					<p>Autor: {post.createdBy}</p>
+					<span>Autor: {post.createdBy}</span>
 				</div>
-				<p>{post.body}</p>
+				<p className={styles.body_post}>{post.body}</p>
 				<ul className={styles.tags}>
 					{post.tags.map((tag, i) => (
 						<li key={i}>
@@ -20,7 +20,7 @@ const PostDetails = ({ post }) => {
 						</li>
 					))}
 				</ul>
-				<Link to={`/post/${post.id}`} className='btn btn-read'>
+				<Link to={`/posts/${post.id}`} className='btn btn-read'>
 					Ler
 				</Link>
 			</div>

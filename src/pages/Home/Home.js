@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from './Home.module.css';
 
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
-import PostDetails from '../../components/postDetails/postDetails';
+import PostDetails from '../../components/postDetails/PostDetails';
 const Home = () => {
 	const [query, setQuery] = useState('');
 	const {

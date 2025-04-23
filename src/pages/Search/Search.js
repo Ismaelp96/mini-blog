@@ -5,8 +5,8 @@ import styles from './Search.module.css';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
 import { useQuery } from '../../hooks/useQuery';
 
-import PostDetails from '../../components/postDetails/postDetails';
 import { useEffect } from 'react';
+import PostDetails from '../../components/postDetails/PostDetails';
 
 const Search = () => {
 	const query = useQuery();
