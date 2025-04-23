@@ -43,7 +43,7 @@ const Navbar = () => {
 								</NavLink>
 							</li>
 							<li>
-								<NavLink to='/post/create' className={isActive}>
+								<NavLink to='/posts/create' className={isActive}>
 									Novo Post
 								</NavLink>
 							</li>

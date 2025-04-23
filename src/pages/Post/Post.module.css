@@ -1,0 +1,30 @@
+.post {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+.post img {
+	border-radius: 1rem;
+}
+
+.post p {
+	font-size: 1.6rem;
+}
+.tags {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+.tags li {
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	background-color: var(--light-red);
+	padding: 1rem;
+	border-radius: 0.6rem;
+}
+
+.tags li p {
+	font-size: 1.4rem;
+}
