@@ -9,13 +9,21 @@ const Dashboard = () => {
 	const { user } = useAuthValue();
 	const uid = user.uid;
 
-	const { documents: posts, loadDocuments } = useFetchDocuments(
-		'posts',
-		null,
-		uid,
-	);
+	const {
+		documents: posts,
+		loadDocuments,
+		loading,
+	} = useFetchDocuments('posts', null, uid);
 
 	useEffect(() => loadDocuments(), [loadDocuments]);
+
+	if (loading) {
+		return <p>Carregando...</p>;
+	}
+
+	const deleteDocument = (id) => {
+		console.log('excluir', id);
+	};
 
 	return (
 		<div>
@@ -32,16 +40,34 @@ const Dashboard = () => {
 					</Link>
 				</div>
 			) : (
-				<div>
-					<p>tem posts!</p>
-				</div>
-			)}
-			{posts &&
-				posts.map((post) => (
-					<div key={post.id}>
-						<h2>{post.title}</h2>
+				<>
+					<div>
+						<button>Título</button>
+						<button>Ações</button>
 					</div>
-				))}
+					{posts &&
+						posts.map((post) => (
+							<div key={post.id}>
+								<h3>{post.title}</h3>
+								<div>
+									<Link to={`/posts/${post.id}`} className='btn btn-outline'>
+										Ver
+									</Link>
+									<Link
+										to={`/posts/edit/${post.id}`}
+										className='btn btn-outline'>
+										Editar
+									</Link>
+									<button
+										className='btn btn-destructive'
+										onClick={() => deleteDocument(post.id)}>
+										Excluir
+									</button>
+								</div>
+							</div>
+						))}
+				</>
+			)}
 		</div>
 	);
 };

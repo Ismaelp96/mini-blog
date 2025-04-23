@@ -10,7 +10,7 @@
 :root {
 	--green: #0f730c;
 	--light-red: #f8d7da;
-	--red: #721c24;
+	--red: #e80017;
 	--bg-light: #f6fcff;
 	--black: #000000;
 	--gray: #aaaaaa;
@@ -40,6 +40,11 @@ nav button {
 	font-size: 1rem;
 	cursor: pointer;
 	transition: all 0.4s ease;
+}
+
+button {
+	background-color: transparent;
+	border: none;
 }
 
 .container {
@@ -89,6 +94,15 @@ button {
 	transition: filter 0.2s ease-in-out;
 	&:hover {
 		filter: brightness(0.8);
+	}
+}
+
+.btn-destructive {
+	background-color: var(--black);
+	color: var(--bg-light);
+	transition: background-color 0.2s ease-in-out;
+	&:hover {
+		background-color: var(--red);
 	}
 }
 
