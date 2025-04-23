@@ -4,10 +4,19 @@ import styles from './Dashboard.module.css';
 
 import { useAuthValue } from '../../context/AuthContext';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
+import { useEffect } from 'react';
 const Dashboard = () => {
 	const { user } = useAuthValue();
 	const uid = user.uid;
-	const posts = [];
+
+	const { documents: posts, loadDocuments } = useFetchDocuments(
+		'posts',
+		null,
+		uid,
+	);
+
+	useEffect(() => loadDocuments(), [loadDocuments]);
+
 	return (
 		<div>
 			<h2>Dashboard</h2>
@@ -27,6 +36,12 @@ const Dashboard = () => {
 					<p>tem posts!</p>
 				</div>
 			)}
+			{posts &&
+				posts.map((post) => (
+					<div key={post.id}>
+						<h2>{post.title}</h2>
+					</div>
+				))}
 		</div>
 	);
 };
