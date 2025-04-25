@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import styles from './EditPost.module.css';
-import { UserInsertDocument } from '../../hooks/useInsertDocument';
+import { useEditDocument } from '../../hooks/useUpdateDocument';
 import { useAuthValue } from '../../context/AuthContext';
 import { useFetchDocument } from '../../hooks/useFetchDocument';
 
@@ -10,7 +10,7 @@ const EditPost = () => {
 	const navigate = useNavigate();
 	const { id } = useParams();
 	const { loadDocument, document: postId } = useFetchDocument('posts', id);
-	const { insertDocument, response } = UserInsertDocument('posts');
+	const { updateDocument, response } = useEditDocument('posts');
 	const { user } = useAuthValue();
 	const [post, setPost] = useState({
 		title: '',
@@ -53,24 +53,23 @@ const EditPost = () => {
 
 		setPost({ ...post, error: '' });
 
-		insertDocument({
+		const data = {
 			title: post.title,
 			img: post.img,
 			body: post.body,
 			tags: tagsArray,
 			uid: user.uid,
 			createdBy: user.displayName,
-		});
-		navigate('/');
+		};
+		updateDocument(id, { ...data });
+		navigate(`/posts/${id}`);
 	};
 
 	return (
 		<div className={styles.edit_post}>
 			{postId && (
 				<>
-					<h1>
-						Deseja editar sua postagem: <span>{postId.title}</span>
-					</h1>
+					<h1>Deseja editar sua postagem?</h1>
 					<p>Altere os dados do post como desejar!</p>
 					<form onSubmit={handleSubmit}>
 						<div className={styles.grid_inputs}>
