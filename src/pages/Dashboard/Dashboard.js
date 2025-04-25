@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import styles from './Dashboard.module.css';
 
 import { useAuthValue } from '../../context/AuthContext';
 import { useFetchDocuments } from '../../hooks/useFetchDocuments';
-import { useEffect } from 'react';
-import { tab } from '@testing-library/user-event/dist/tab';
+import { useDeleteDocument } from '../../hooks/useDeleteDocument';
 const Dashboard = () => {
 	const { user } = useAuthValue();
 	const uid = user.uid;
@@ -16,15 +16,13 @@ const Dashboard = () => {
 		loading,
 	} = useFetchDocuments('posts', null, uid);
 
+	const { deleteDocument } = useDeleteDocument('posts');
+
 	useEffect(() => loadDocuments(), [loadDocuments]);
 
 	if (loading) {
 		return <p>Carregando...</p>;
 	}
-
-	const deleteDocument = (id) => {
-		console.log('excluir', id);
-	};
 
 	return (
 		<div className={styles.dashboard}>
